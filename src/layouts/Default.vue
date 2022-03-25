@@ -2,22 +2,25 @@
   <div class="layout">
     <div class="grid">
       <header>
-        <div>
-          The People of Lambertville
+        <div class="siteHeader__section">
+          <div class="siteHeader__item siteHeaderButton">The People of Lambertville</div>
           <!-- <a href="#" class="brand"><g-image alt="The People of Lambertville" src="~/favicon.png" width="135" /></a> -->
         </div>
-        <input id="menu-toggle" type="checkbox" />
-        <label class='menu-button-container' for="menu-toggle">
-          <div class='menu-button'></div>
-        </label>
-        <ul class="menu">
-          <li>One</li>
-          <li>Two</li>
-          <li>Three</li>
-          <li>Four</li>
-          <li>Five</li>
-        </ul>
-
+        <div class="siteHeader__section">
+          <div class="siteHeader__item siteHeaderButton">
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+              <div class='menu-button'></div>
+            </label>
+            <ul class="menu siteHeader__item siteHeaderButton">
+              <li>One</li>
+              <li>Two</li>
+              <li>Three</li>
+              <li>Four</li>
+              <li>Five</li>
+            </ul>
+          </div>
+        </div>
         <!-- <div class="wrapper site-header__wrapper">
           <a href="#" class="brand"><g-image alt="The People of Lambertville" src="~/favicon.png" width="135" /></a>
           <div :class="{open: menuOpen}">
@@ -99,9 +102,14 @@ body {
   height: 100vh;
 }
 
+.grid > main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 header {
   grid-area: header;
-
 }
 
 nav {
@@ -120,11 +128,6 @@ footer {
   grid-area: footer;
 }
 
-.grid > * {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 header,
 nav,
@@ -139,12 +142,6 @@ header, footer {
   grid-column: 1 / 4;
 }
 
-.site-header__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 article {
   min-width: 15em;
 }
@@ -153,17 +150,46 @@ article {
   margin-left: 20px;
 }
 /* burger */
-.top-nav {
+header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #00BAF0;
-  background: linear-gradient(to left, #f46b45, #eea849);
+  background-color: #56727C;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
   height: 50px;
   padding: 1em;
+}
+
+.siteHeader__section {
+    /**
+     * Lay out the children of this container with
+     * flexbox.
+     */
+    display: flex;
+
+    /**
+     * Align the children in the center, along
+     * the main axis. By default the children will
+     * align along their top edges.
+     */
+    align-items: center;
+}
+
+.siteHeader__item {
+  padding: 5px 15px;
+  font-size: 12px;
+}
+
+.siteHeader__item + .siteHeader__item {
+  margin-left: 5px;
+}
+
+.siteHeader__item.is-site-header-item-selected {
+  color: #FFFFFF;
+  background-color: #415F69;
+  border-radius: 4px;
 }
 
 .menu {
