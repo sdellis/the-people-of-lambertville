@@ -3,8 +3,8 @@
     <div class="grid">
       <header>
         <div class="siteHeader__section">
+          <g-link class="brand" to="/"><g-image alt="The People of Lambertville" src="~/favicon.png" width="135" /></g-link>
           <div class="siteHeader__item siteHeaderButton">The People of Lambertville</div>
-          <!-- <a href="#" class="brand"><g-image alt="The People of Lambertville" src="~/favicon.png" width="135" /></a> -->
         </div>
         <div class="siteHeader__section">
           <div class="siteHeader__item siteHeaderButton">
@@ -13,40 +13,60 @@
               <div class='menu-button'></div>
             </label>
             <ul class="menu siteHeader__item siteHeaderButton">
-              <li>One</li>
-              <li>Two</li>
-              <li>Three</li>
+              <li><g-link class="nav__link" to="/about/"><span>About</span></g-link></li>
+              <li><g-link class="nav__link" to="/about/"><span>Using This Portal</span></g-link></li>
+              <li><g-link class="nav__link" to="/about/"><span>Schedule An Interview</span></g-link></li>
               <li>Four</li>
               <li>Five</li>
             </ul>
           </div>
         </div>
-        <!-- <div class="wrapper site-header__wrapper">
-          <a href="#" class="brand"><g-image alt="The People of Lambertville" src="~/favicon.png" width="135" /></a>
-          <div :class="{open: menuOpen}">
-            <button class="burger" :class="{open: menuOpen}" @click="handleOpen">
-              <div class="line line-1"></div>
-              <div class="line line-2"></div>
-            </button>
-          </div>
-          <nav class="nav" :class="{open: menuOpen}" ref="nav">
-            <g-link class="nav__link" to="/about/"><span>About</span></g-link>
-            <g-link class="nav__link" to="/map/"><span>Using this Portal</span></g-link>
-            <g-link class="nav__link" to="/sched/"><span>Schedule an Interview</span></g-link>
-          </nav>
-        </div> -->
       </header>
-
+      <div class="header-wrap">
+        <h1>Lambertville Oral Histories Project</h1>
+      </div>
       <main>
         <slot/>
       </main>
 
       <aside>
-        <!-- Sidebar / Ads -->
+        <h2>Oral Histories</h2>
+        <ul>
+          <li>
+            <a href="">
+              Bardusco, Trina (2022/06/20)
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Ellis, Shaun (2022/06/20)
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Kline, J.B. (2022/06/20)
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Harris, Bruce (2022/06/20)
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Todd-Marino, Roni (2022/06/20)
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Witts, Sandra (2022/06/20)
+            </a>
+          </li>
+        </ul>
       </aside>
 
       <footer>
-        <!-- Footer content -->
+        <p><span>©2022 </span> <a href="/">Lambertville Human Rights Council</a></p>
       </footer>
       </div>
   </div>
@@ -76,10 +96,11 @@ export default {
 
 <style>
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: 'Josefin Slab', serif;
   margin:0;
   padding:0;
   line-height: 1.5;
+  font-size: 2em;
 }
 
 .layout {
@@ -92,20 +113,68 @@ body {
 
   grid-template-areas:
     "header header header"
+    "title title title"
     "content content side"
     "footer footer footer";
 
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   grid-gap: 1px;
 
   height: 100vh;
 }
 
-.grid > main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.grid > main, aside {
+  padding: 2em;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1em;
+}
+
+aside li > a{
+  font-size: .6em;
+  line-height: 1.5em;
+  border-bottom: 1px solid #b5b7b7;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  border-color: black;
+}
+
+main h2, aside h2 {
+  color: #b5b7b7;
+  font-size: .8em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+footer {
+  padding: 0em 2em 1em;
+  font-size: .6em;
+  color: white;
+}
+footer a {
+  color: white;
+}
+
+.header-wrap {
+  grid-area: title;
+  background-color: #b5b7b7;
+  font-size: 28px;
+  max-width: 100%;
+  line-height: 1.1;
+  color: white;
+  padding: 3em 2em 1em;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
 }
 
 header {
@@ -128,14 +197,8 @@ footer {
   grid-area: footer;
 }
 
-
-header,
-nav,
-article,
-aside,
 footer {
-background: lightgray;
-padding: 1em;
+  background-color: #56727C;
 }
 
 header, footer {
@@ -179,7 +242,7 @@ header {
 
 .siteHeader__item {
   padding: 5px 15px;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .siteHeader__item + .siteHeader__item {
@@ -258,6 +321,7 @@ header {
   .grid {
     grid-template-areas:
       "header"
+      "title"
       "content"
       "side"
       "footer";
@@ -265,6 +329,7 @@ header {
     grid-template-columns: 1fr;
     grid-template-rows:
       auto /* Header */
+      auto /* Title */
       1fr /* Content */
       minmax(75px, auto) /* Sidebar */
       auto; /* Footer */
@@ -313,136 +378,5 @@ header {
   .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;
   }
-
-
-  /* button.burger {
-    display: block;
-  }
-  header > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 100;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  header > div.open {
-    transform: translateY(-80px);
-    transition: all 500ms ease;
-  }
-  header > div.open strong a {
-    color: white;
-  }
-  header > div.open button.burger .line {
-    background-color: white;
-  }
-  nav.nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-200%);
-    background: var(--text);
-    color: white;
-    height: 100vh;
-    width: 100%;
-    transition: all 500ms ease;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 32px;
-  }
-  nav.nav.open {
-    transform: translateX(0%);
-  }
-  nav.nav.close {
-    background: blue;
-  }
-  nav.nav a.nav__link {
-    color: white;
-    font-size: 32px;
-    margin: 24px 0;
-  }
-  nav.nav a.nav__link.active {
-    color: var(--dark-gold);
-  }
-  nav.nav a.nav__link:hover {
-    transform: none;
-  } */
 }
-
-/* nav.nav {
-  border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  margin-top: 10px;
-}
-nav.nav .nav__link {
-  font-size: 24px;
-  color: var(--text);
-  text-decoration: none;
-  position: relative;
-  font-weight: 400;
-  display: inline-block;
-  transition: all 200ms ease;
-  font-family: 'Open Sans', sans-serif;
-}
-nav.nav .nav__link span {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  transition: all 200ms ease;
-}
-nav.nav .nav__link span:hover {
-  transform: translateY(-3px);
-}
-nav.nav .nav__link.active span {
-  transform: translateY(-3px);
-}
-nav.nav .nav__link.active::after {
-  width: 100%;
-}
-nav.nav .nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 1px;
-  background: var(--border);
-  transition: all 200ms ease;
-  transform-origin: center;
-}
-nav.nav .nav__link:hover::after {
-  width: 100%;
-}
-button.burger {
-  display: none;
-  border: none;
-  background: none;
-  width: 50px;
-  height: 40px;
-  z-index: 100;
-  cursor: pointer;
-}
-button.burger .line {
-  width: 100%;
-  height: 2px;
-  border-radius: 20px;
-  background-color: white;
-  margin: 12px 0;
-  transition: all 1000ms ease;
-}
-button.burger.open .line-1 {
-  transform: translateY(7px) rotate(45deg);
-}
-button.burger.open .line-2 {
-  transform: translateY(-7px) rotate(-45deg);
-} */
 </style>

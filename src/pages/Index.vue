@@ -1,18 +1,16 @@
 <template>
   <Layout>
 
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
+    <h2>About this Collection</h2>
+    <p>
+      This collection includes oral histories collected in a collaboration with the Lambertville Free Public Library, the Lambertville Human Rights Council, and community members, starting in the Spring of 2022. The project attempts to document and share the stories of Lambertville residents.</p>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'The People of Lambertville'
   }
 }
 </script>
