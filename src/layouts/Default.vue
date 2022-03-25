@@ -4,7 +4,7 @@
       <header>
         <div class="siteHeader__section">
           <g-link class="brand" to="/"><g-image alt="The People of Lambertville" src="~/favicon.png" width="135" /></g-link>
-          <div class="siteHeader__item siteHeaderButton">The People of Lambertville</div>
+          <div class="siteHeader__item siteHeaderButton"><g-link class="brand" to="/">The People of Lambertville</g-link></div>
         </div>
         <div class="siteHeader__section">
           <div class="siteHeader__item siteHeaderButton">
@@ -16,55 +16,11 @@
               <li><g-link class="nav__link" to="/about/"><span>About</span></g-link></li>
               <li><g-link class="nav__link" to="/about/"><span>Using This Portal</span></g-link></li>
               <li><g-link class="nav__link" to="/about/"><span>Schedule An Interview</span></g-link></li>
-              <li>Four</li>
-              <li>Five</li>
             </ul>
           </div>
         </div>
       </header>
-      <div class="header-wrap">
-        <h1>Lambertville Oral Histories Project</h1>
-      </div>
-      <main>
-        <slot/>
-      </main>
-
-      <aside>
-        <h2>Oral Histories</h2>
-        <ul>
-          <li>
-            <a href="">
-              Bardusco, Trina (2022/06/20)
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Ellis, Shaun (2022/06/20)
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Kline, J.B. (2022/06/20)
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Harris, Bruce (2022/06/20)
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Todd-Marino, Roni (2022/06/20)
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Witts, Sandra (2022/06/20)
-            </a>
-          </li>
-        </ul>
-      </aside>
-
+      <slot/>
       <footer>
         <p><span>©2022 </span> <a href="/">Lambertville Human Rights Council</a></p>
       </footer>
@@ -79,20 +35,6 @@ query {
   }
 }
 </static-query>
-<script>
-export default {
-  data() {
-    return {
-      menuOpen: false,
-    }
-  },
-  methods: {
-    handleOpen() {
-      this.menuOpen = !this.menuOpen;
-    },
-  }
-}
-</script>
 
 <style>
 body {
@@ -134,9 +76,12 @@ aside ul {
   font-size: 1em;
 }
 
-aside li > a{
+aside li {
   font-size: .6em;
   line-height: 1.5em;
+}
+
+aside li > a{
   border-bottom: 1px solid #b5b7b7;
   color: black;
   text-decoration: none;
@@ -169,7 +114,29 @@ footer a {
   max-width: 100%;
   line-height: 1.1;
   color: white;
-  padding: 3em 2em 1em;
+  padding: 1em 2em 1em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 5%;
+}
+
+/* .record {
+  width: 50%;
+  height: 100%;
+} */
+.portrait {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.portrait img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 header a {
