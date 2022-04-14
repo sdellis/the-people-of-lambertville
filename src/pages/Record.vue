@@ -8,7 +8,7 @@
         <g-image alt="Audio Player" src="~/images/audio-player.png" width="800" />
       </div>
       <div class="portrait">
-        <g-image alt="Trina Bardusco portrait" src="~/images/trina.jpg" width="400" />
+        <g-image alt="Trina Bardusco portrait" src="~/images/trina.jpg" />
       </div>
     </div>
     <main>

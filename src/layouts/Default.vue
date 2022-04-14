@@ -119,6 +119,7 @@ footer a {
   justify-content: space-between;
   flex-direction: row;
   gap: 5%;
+    flex-wrap: wrap;
 }
 
 /* .record {
@@ -130,13 +131,12 @@ footer a {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .portrait img {
   flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 550px;
 }
 
 header a {
